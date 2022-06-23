@@ -1,0 +1,31 @@
+{
+  "name": "rn-animated-switch",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "react-native",
+    "react",
+    "native",
+    "animated",
+    "animation",
+    "switch",
+    "icon",
+    "image",
+    "asset"
+  ],
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*",
+    "typescript": "*"
+  },
+  "author": "TuanChan",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TranTuan520/rn-animated-switch"
+  }
+}
