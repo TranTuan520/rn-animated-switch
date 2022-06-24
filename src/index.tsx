@@ -6,9 +6,12 @@ import styles from './styles'
 
 export interface RNAnimatedSwitchProps {
   width: number
+  height:number
   value: boolean
   backgroundColor?: string
   circleBackgroundColor?: string
+  isDisable?: boolean
+  disableColor?:string
   onValueChange?: (value: boolean) => void
   inactiveColor?: string
   activeColor?: string
@@ -21,6 +24,8 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
   const {
     width,
     value,
+    isDisable,
+    disableColor = '#BDBDBD',
     backgroundColor = '#fff',
     circleBackgroundColor = '#fff',
     onValueChange,
@@ -31,7 +36,8 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
     activeComponent: renderActiveComponent
   } = props
 
-  const height = width / 2
+
+  const height = width*0.8 > props.height ? props.height : width*0.8
 
   const padding = height * 0.1
 
@@ -48,7 +54,7 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
     outputRange: [1, 1.6, 1]
   })
 
-  const interpolateBackgroundColor = translateX.interpolate({
+  const interpolateBackgroundColor =  translateX.interpolate({
     inputRange: [0, width - height - padding / 8],
     outputRange: [inactiveColor, activeColor]
   })
@@ -89,6 +95,7 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
           : interpolateBackgroundColor,
         borderRadius: width / 2,
         padding: padding,
+        ...(isDisable && {backgroundColor: disableColor}),
         ...styles.container
       }}
     >
@@ -123,10 +130,11 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
         </View>
       </View>
 
-      <TouchableOpacity activeOpacity={1} onPress={onPress}>
+      <TouchableOpacity disabled={isDisable} activeOpacity={1} onPress={onPress}>
         <Animated.View
           style={{
             backgroundColor: circleBackgroundColor,
+            ...(isDisable && {backgroundColor: disableColor}),
             borderRadius: width / 2,
             padding: height * 0.1,
             transform: [{ translateX }, { scaleX }],

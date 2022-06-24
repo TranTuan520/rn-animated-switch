@@ -48,6 +48,7 @@ const circleContent = () => {
 
  <RNAnimatedSwitch
           width={100}
+          height={40}
           value={value}
           onValueChange={setValue}
           activeColor='#282E38'
@@ -65,10 +66,13 @@ const circleContent = () => {
 | Prop                    | Default | Type       | Description                                                                                          |
 | ----------------------- | ------- | ---------- | ---------------------------------------------------------------------------------------------------- |
 | **`width`**             | none    | `number`   | Width of Switch                                                                                      |
+| **`height`**            | none    | `number`   | Height of Switch                                                                                     |
 | **`value`**             | none    | `boolean`  | Value of Switch                                                                                      |
 | **`onValueChange`**     | none    | `function` | The callback function for when the value is changed in Switch, providing the updated value in params |
 | **`activeColor`**       | none    | `string`   | Active color                                                                                         |
 | **`inactiveColor`**     | none    | `string`   | Inactive color                                                                                       |
+| **`isDisable`**         | none    | `boolean`  | Disable switch color                                                                                 |
+| **`disableColor`**      | none    | `string`   | Switch color when is disabled color                                                                  |
 | **`circleContent`**     | none    | `element`  | Content of Switch's circle                                                                           |
 | **`activeComponent`**   | none    | `element`  | Component show when switch inactive                                                                  |
 | **`inactiveComponent`** | none    | `element`  | Component show when switch inactive                                                                  |
