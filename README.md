@@ -71,8 +71,8 @@ const circleContent = () => {
 | **`onValueChange`**     | none    | `function` | The callback function for when the value is changed in Switch, providing the updated value in params |
 | **`activeColor`**       | none    | `string`   | Active color                                                                                         |
 | **`inactiveColor`**     | none    | `string`   | Inactive color                                                                                       |
-| **`isDisable`**         | none    | `boolean`  | Disable switch color                                                                                 |
-| **`disableColor`**      | none    | `string`   | Switch color when is disabled color                                                                  |
+| **`isDisable`**         | none    | `boolean`  | Disable switch                                                                                       |
+| **`disableColor`**      | none    | `string`   | Switch color when disabled                                                                           |
 | **`circleContent`**     | none    | `element`  | Content of Switch's circle                                                                           |
 | **`activeComponent`**   | none    | `element`  | Component show when switch inactive                                                                  |
 | **`inactiveComponent`** | none    | `element`  | Component show when switch inactive                                                                  |
