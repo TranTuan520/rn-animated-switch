@@ -39,12 +39,31 @@ const circleContent = () => {
     )
   }
 
-  const renderActiveComponent = () => {
-    return <Image source={Images.smile} style={{ width: 30, height: 30 }} />
-  }
-  const renderInactiveComponent = () => {
-    return <Image source={Images.sadBoy} style={{ width: 30, height: 30 }} />
-  }
+ const renderActiveComponent = () => {
+    return (
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Image source={Images.smile} style={{width: 30, height: 30}} />
+      </View>
+    );
+  };
+
+const renderInactiveComponent = () => {
+    return (
+      <View
+        style={{
+          flex: 1,
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}>
+        <Image source={Images.sadBoyzSiTinh} style={{width: 30, height: 30}} />
+      </View>
+    );
+  };
 
 ...
 

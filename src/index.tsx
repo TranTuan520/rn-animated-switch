@@ -111,7 +111,7 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
             transform: [{ translateY: interpolateInactiveIcon }]
           }}
         >
-          {inactiveComponent && inactiveComponent()}
+          {activeComponent && activeComponent()}
         </Animated.View>
 
         <Animated.View
@@ -123,7 +123,7 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
             left: height - padding
           }}
         >
-          {activeComponent && activeComponent()}
+          {inactiveComponent && inactiveComponent()}
         </Animated.View>
       </View>
 
