@@ -1,5 +1,7 @@
 # rn-animated-switch
 
+A simple Switch component with animations and icons or whatever you want, reducing your development time for great apps to enjoy your coffee <( ͡° ͜ʖ ͡°)☕️
+
 ![preview](https://github.com/TranTuan520/rn-animated-switch/blob/dev/src/Images/preview.gif)
 
 ## Install
@@ -51,7 +53,7 @@ const circleContent = () => {
           height={40}
           value={value}
           onValueChange={setValue}
-          activeColor='#282E38'
+          activeColor={'#282E38'}
           inactiveColor={'#D8F3FF'}
           circleContent={circleContent}
           activeComponent={renderActiveComponent}

@@ -6,15 +6,15 @@ import styles from './styles'
 
 export interface RNAnimatedSwitchProps {
   width: number
-  height:number
+  height: number
   value: boolean
   backgroundColor?: string
   circleBackgroundColor?: string
   isDisable?: boolean
-  disableColor?:string
-  onValueChange?: (value: boolean) => void
+  disableColor?: string
   inactiveColor?: string
   activeColor?: string
+  onValueChange?: (value: boolean) => void
   circleContent?: () => ReactElement
   inactiveComponent?: () => ReactElement
   activeComponent?: () => ReactElement
@@ -33,11 +33,10 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
     activeColor,
     circleContent,
     inactiveComponent,
-    activeComponent: renderActiveComponent
+    activeComponent
   } = props
 
-
-  const height = width*0.8 > props.height ? props.height : width*0.8
+  const height = width * 0.8 > props.height ? props.height : width * 0.8
 
   const padding = height * 0.1
 
@@ -51,10 +50,10 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
       (width - height - padding / 8) / 2,
       width - height - padding / 8 / 2
     ],
-    outputRange: [1, 1.6, 1]
+    outputRange: [1, 1.7, 1]
   })
 
-  const interpolateBackgroundColor =  translateX.interpolate({
+  const interpolateBackgroundColor = translateX.interpolate({
     inputRange: [0, width - height - padding / 8],
     outputRange: [inactiveColor, activeColor]
   })
@@ -90,12 +89,12 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
       style={{
         width,
         height,
+        borderRadius: width / 2,
         backgroundColor: !(inactiveColor || activeColor)
           ? backgroundColor
           : interpolateBackgroundColor,
-        borderRadius: width / 2,
         padding: padding,
-        ...(isDisable && {backgroundColor: disableColor}),
+        ...(isDisable && { backgroundColor: disableColor }),
         ...styles.container
       }}
     >
@@ -105,39 +104,41 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
           ...styles.contentWrapper
         }}
       >
-        <View style={styles.content}>
-          <Animated.View
-            style={{
-              height: height * 0.8,
-              transform: [{ translateY: interpolateInactiveIcon }],
-              ...styles.subContent
-            }}
-          >
-            {inactiveComponent && inactiveComponent()}
-          </Animated.View>
-        </View>
+        <Animated.View
+          style={{
+            height: height * 0.8,
+            width: width - height - padding,
+            transform: [{ translateY: interpolateInactiveIcon }]
+          }}
+        >
+          {inactiveComponent && inactiveComponent()}
+        </Animated.View>
 
-        <View style={styles.content}>
-          <Animated.View
-            style={{
-              height: height * 0.8,
-              transform: [{ translateY: interpolateActiveIcon }],
-              ...styles.subContent
-            }}
-          >
-            {renderActiveComponent && renderActiveComponent()}
-          </Animated.View>
-        </View>
+        <Animated.View
+          style={{
+            position: 'absolute',
+            height: height * 0.8,
+            width: width - height - padding,
+            transform: [{ translateY: interpolateActiveIcon }],
+            left: height - padding
+          }}
+        >
+          {activeComponent && activeComponent()}
+        </Animated.View>
       </View>
 
-      <TouchableOpacity disabled={isDisable} activeOpacity={1} onPress={onPress}>
+      <TouchableOpacity
+        disabled={isDisable}
+        activeOpacity={1}
+        onPress={onPress}
+      >
         <Animated.View
           style={{
             backgroundColor: circleBackgroundColor,
-            ...(isDisable && {backgroundColor: disableColor}),
             borderRadius: width / 2,
             padding: height * 0.1,
             transform: [{ translateX }, { scaleX }],
+            ...(isDisable && { backgroundColor: disableColor }),
             ...styles.circleWrapper
           }}
         >
