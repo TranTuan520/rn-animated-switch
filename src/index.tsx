@@ -45,33 +45,29 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
   ).current
 
   const scaleX = translateX.interpolate({
-    inputRange: [
-      0,
-      (width - height - padding / 8) / 2,
-      width - height - padding / 8 / 2
-    ],
+    inputRange: [0, (width - height) / 2, width - height],
     outputRange: [1, 1.7, 1]
   })
 
   const interpolateBackgroundColor = translateX.interpolate({
-    inputRange: [0, width - height - padding / 8],
+    inputRange: [0, width - height],
     outputRange: [inactiveColor, activeColor]
   })
 
   const interpolateInactiveIcon = translateX.interpolate({
-    inputRange: [0, width - height - padding / 8],
+    inputRange: [0, width - height],
     outputRange: [height, 0]
   })
 
   const interpolateActiveIcon = translateX.interpolate({
-    inputRange: [0, width - height - padding / 8],
+    inputRange: [0, width - height],
     outputRange: [0, height]
   })
 
   const onPress = () => {
     if (!value) {
       Animated.spring(translateX, {
-        toValue: width - height - padding / 8,
+        toValue: width - height,
         useNativeDriver: false
       }).start()
       onValueChange && onValueChange(true)

@@ -4,6 +4,8 @@ A simple Switch component with animations and icons or whatever you want, reduci
 
 ![preview](https://github.com/TranTuan520/rn-animated-switch/blob/dev/src/Images/preview.gif)
 
+![preview](https://github.com/TranTuan520/rn-animated-switch/blob/dev/src/Images/preview1.gif)
+
 ## Install
 
 from yarn
