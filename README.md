@@ -4,7 +4,7 @@ A simple Switch component with animations and icons or whatever you want, reduci
 
 ![preview](https://github.com/TranTuan520/rn-animated-switch/blob/dev/src/Images/preview.gif)
 
-![preview](https://github.com/TranTuan520/rn-animated-switch/blob/dev/src/Images/preview1.gif)
+<!-- ![preview](https://github.com/TranTuan520/rn-animated-switch/blob/dev/src/Images/preview1.gif) -->
 
 ## Install
 
@@ -86,19 +86,21 @@ const renderInactiveComponent = () => {
 
 ## Properties
 
-| Prop                    | Default | Type       | Description                                                                                          |
-| ----------------------- | ------- | ---------- | ---------------------------------------------------------------------------------------------------- |
-| **`width`**             | none    | `number`   | Width of Switch                                                                                      |
-| **`height`**            | none    | `number`   | Height of Switch                                                                                     |
-| **`value`**             | none    | `boolean`  | Value of Switch                                                                                      |
-| **`onValueChange`**     | none    | `function` | The callback function for when the value is changed in Switch, providing the updated value in params |
-| **`activeColor`**       | none    | `string`   | Active color                                                                                         |
-| **`inactiveColor`**     | none    | `string`   | Inactive color                                                                                       |
-| **`isDisable`**         | none    | `boolean`  | Disable switch                                                                                       |
-| **`disableColor`**      | none    | `string`   | Switch color when disabled                                                                           |
-| **`circleContent`**     | none    | `element`  | Content of Switch's circle                                                                           |
-| **`activeComponent`**   | none    | `element`  | Component show when switch inactive                                                                  |
-| **`inactiveComponent`** | none    | `element`  | Component show when switch inactive                                                                  |
+| Prop                      | Default | Type       | Description                                                                                          |
+| ------------------------- | ------- | ---------- | ---------------------------------------------------------------------------------------------------- |
+| **`width`**               | none    | `number`   | Width of Switch                                                                                      |
+| **`height`**              | none    | `number`   | Height of Switch                                                                                     |
+| **`value`**               | none    | `boolean`  | Value of Switch                                                                                      |
+| **`onValueChange`**       | none    | `function` | The callback function for when the value is changed in Switch, providing the updated value in params |
+| **`activeColor`**         | none    | `string`   | Active color                                                                                         |
+| **`inactiveColor`**       | none    | `string`   | Inactive color                                                                                       |
+| **`activeCircleColor`**   | none    | `string`   | Active color of circle                                                                               |
+| **`inactiveCircleColor`** | none    | `string`   | Inactive color of circle                                                                             |
+| **`isDisable`**           | none    | `boolean`  | Disable switch                                                                                       |
+| **`disableColor`**        | none    | `string`   | Switch color when disabled                                                                           |
+| **`circleContent`**       | none    | `element`  | Content of Switch's circle                                                                           |
+| **`activeComponent`**     | none    | `element`  | Component show when switch inactive                                                                  |
+| **`inactiveComponent`**   | none    | `element`  | Component show when switch inactive                                                                  |
 
 ## License
 

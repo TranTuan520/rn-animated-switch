@@ -1,4 +1,4 @@
-import { View, Animated, TouchableOpacity } from 'react-native'
+import { View, Animated, TouchableOpacity, ViewStyle } from 'react-native'
 import React, { ReactElement, useRef } from 'react'
 
 // Styles
@@ -8,12 +8,14 @@ export interface RNAnimatedSwitchProps {
   width: number
   height: number
   value: boolean
+  containerStyle: ViewStyle,
   backgroundColor?: string
-  circleBackgroundColor?: string
   isDisable?: boolean
   disableColor?: string
   inactiveColor?: string
   activeColor?: string
+  inactiveCircleColor?: string,
+  activeCircleColor?:string,
   onValueChange?: (value: boolean) => void
   circleContent?: () => ReactElement
   inactiveComponent?: () => ReactElement
@@ -24,16 +26,18 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
   const {
     width,
     value,
+    containerStyle,
     isDisable,
     disableColor = '#BDBDBD',
     backgroundColor = '#fff',
-    circleBackgroundColor = '#fff',
     onValueChange,
     inactiveColor,
     activeColor,
+    activeCircleColor,
+    inactiveCircleColor,
     circleContent,
     inactiveComponent,
-    activeComponent
+    activeComponent,
   } = props
 
   const height = width * 0.8 > props.height ? props.height : width * 0.8
@@ -52,6 +56,11 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
   const interpolateBackgroundColor = translateX.interpolate({
     inputRange: [0, width - height],
     outputRange: [inactiveColor, activeColor]
+  })
+
+  const interpolateCircleBackgroundColor = translateX.interpolate({
+    inputRange: [0, width - height],
+    outputRange: [inactiveCircleColor, activeCircleColor]
   })
 
   const interpolateInactiveIcon = translateX.interpolate({
@@ -91,7 +100,8 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
           : interpolateBackgroundColor,
         padding: padding,
         ...(isDisable && { backgroundColor: disableColor }),
-        ...styles.container
+        ...styles.container,
+        ...containerStyle
       }}
     >
       <View
@@ -130,7 +140,7 @@ const RNAnimatedSwitch = (props: RNAnimatedSwitchProps) => {
       >
         <Animated.View
           style={{
-            backgroundColor: circleBackgroundColor,
+            backgroundColor: interpolateCircleBackgroundColor,
             borderRadius: width / 2,
             padding: height * 0.1,
             transform: [{ translateX }, { scaleX }],
